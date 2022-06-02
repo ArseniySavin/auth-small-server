@@ -1,0 +1,19 @@
+FROM golang:1.18 as builder
+
+ARG CGO_ENABLED=0
+ARG GITLAB_ACCESS_TOKEN
+
+RUN apt-get update && apt-get install -y upx
+
+WORKDIR /app
+
+COPY . .
+RUN go build -o auth -ldflags "-s -w" .
+RUN upx --best --lzma auth
+
+FROM alpine:latest
+
+RUN apk add --no-cache curl
+COPY --from=builder /app/auth /auth
+
+ENTRYPOINT ["./auth"]
