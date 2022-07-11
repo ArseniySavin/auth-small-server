@@ -2,9 +2,9 @@
 The small auth server was based on Oauth. The server is using parts of the big RFC
 ### **Docs**
 - API
-  - [Token](/docs/get_token.md)
-  - [Revoke](/docs/revoke_token.md)
-  - [Introspection](/docs/introspect_token.md)
+  - [Token](/docs/token.md)
+  - [Revoke](/docs/revoke.md)
+  - [Introspection](/docs/introspect.md)
   - TODO [Client](/docs/client.md)
   - TODO [Revocation](/docs/revocation.md)
 
